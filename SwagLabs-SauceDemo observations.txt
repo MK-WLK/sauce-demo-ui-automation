@@ -1,0 +1,17 @@
+Login field:
+No username: Epic sadface: Username is required
+No password: Epic sadface: Password is required
+Both fields blank: Epic sadface: Username is required
+Wrong pw: Epic sadface: Username and password do not match any user in this service
+
+User login:
+Correct user, usertype=locked_out_user: Epic sadface: Sorry, this user has been locked out.
+Correct user, usertype=performance_glitch_user: successful login, user takes longer to navigate between pages (e.g., login screen to home) but actions such as add-to-cart, check-cart are still updated realtime
+Correct user, usertype=error_user: successful login, user can only add to cart items 1,2, and 5 but cannot remove them from home page, they can only remove on cart page 
+Correct user, usertype=visual_user: successful login, user sees item 1 with different thumbnail
+
+Checkout:
+No firstname: Error: First Name is required
+No lastname: Error: Last Name is required
+No ZIP/Postal: Error: Postal Code is required
+All fields blank: Error: First Name is required
