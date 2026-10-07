@@ -1,10 +1,12 @@
+# Installed packages (Third-party)
 from selenium import webdriver
-from pages.login_page import LoginPage
-from pages.inventory_page import InventoryPage
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import WebDriverWait
 
+# Local files
+from pages.inventory_page import InventoryPage
+from pages.login_page import LoginPage
 
 def test_successful_login(driver):
     login_page = LoginPage(driver)
