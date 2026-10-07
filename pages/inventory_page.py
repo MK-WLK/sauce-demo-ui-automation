@@ -1,7 +1,6 @@
 # Installed packages (Third-party)
 from selenium.webdriver.common.by import By
 
-
 class InventoryPage:
 
     def __init__(self, driver):
