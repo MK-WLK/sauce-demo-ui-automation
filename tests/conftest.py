@@ -1,4 +1,6 @@
+
 # Installed packages (Third-party)
+import os
 import pytest
 from selenium import webdriver
 
@@ -20,6 +22,12 @@ def driver(tmp_path):
             "plugins.always_open_pdf_externally": True,
         },
     )
+
+    # Use headless Chrome when running in CI
+    if os.getenv("CI") == "true":
+        options.add_argument("--headless=new")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
 
     browser = webdriver.Chrome(options=options)
     browser.set_page_load_timeout(30)
