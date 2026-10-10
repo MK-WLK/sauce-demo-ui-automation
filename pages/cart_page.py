@@ -3,13 +3,18 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.common.exceptions import StaleElementReferenceException
 
 
 class CartPage:
 
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait(driver, 10)
+        self.wait = WebDriverWait(
+            driver,
+            10,
+            ignored_exceptions=(StaleElementReferenceException,)
+    )
 
     def open(self):
         self.wait.until(
@@ -38,3 +43,4 @@ class CartPage:
                 (By.ID, "continue-shopping")
             )
         ).click()
+

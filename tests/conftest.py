@@ -2,7 +2,9 @@
 import os
 import pytest
 from selenium import webdriver
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 @pytest.fixture
 def driver(tmp_path):
@@ -45,5 +47,12 @@ def logged_in_driver(driver):
     login_page.enter_username("standard_user")
     login_page.enter_password("secret_sauce")
     login_page.click_login()
+
+    # Wait until the inventory page is ready
+    WebDriverWait(driver, 10).until(
+        EC.visibility_of_element_located(
+            (By.ID, "add-to-cart-sauce-labs-backpack")
+        )
+    )
 
     return driver
